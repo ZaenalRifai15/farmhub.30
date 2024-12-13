@@ -1,0 +1,59 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda</title>
+    <link rel="stylesheet" href="{% static 'products/css/product_list.css' %}">
+</head>
+<body>
+    <header>
+        <div class="menu-icon">
+            <span>&#9776;</span>
+        </div>
+        <div id="user-location">Sukajadi, Bandung</div>
+        <div class="notification-icon">
+            <span>&#128276;</span>
+        </div>
+    </header>
+    <main>
+        <section class="welcome">
+            <h2>Hallo, <span class="user-name">user</span></h2>
+            <p>Selamat datang di FarmHub.</p>
+            <input type="text" placeholder="Cari yang kamu perlukan" class="search-bar">
+        </section>
+
+        <section class="product-section">
+            <h3>Terdekat <a href="#" class="see-all">Lihat Semua</a></h3>
+            <div class="product-grid" id="terdekat-products"></div>
+        </section>
+
+        <div class="card-container">
+            {% for product in products %}
+                <div  class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top">
+                    
+                    <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    </div>
+                    <ul class="list-group">
+                    <li class="list-group-item">1 kg</li>
+                    <li class="harga">Rp{{ product.price }}</li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        <section class="product-section">
+            <h3>Paling Laku <a href="#" class="see-all">Lihat Semua</a></h3>
+            <div class="product-grid" id="paling-laku-products"></div>
+        </section>
+
+
+    </main>
+</body>
+
+<script src="{% static 'js/script-beranda.js' %}"></script>
+</html>

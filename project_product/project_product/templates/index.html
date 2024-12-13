@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | FarmHub</title>
+    <link rel="stylesheet" href={% static "css/welcome.css" %}>
+</head>
+<body>
+    <div class="welcome">
+        <div class="content">
+                <img src={% static "./asets/logo.png" %} alt="FarmHub" class="logo">
+            <h1>Nikmati Belanja Anda Bersama <span class="highlight">FarmHub</span></h1>
+            <p>
+                Nikmati kemudahan belanja online bersama FarmHub! Temukan produk terbaik,
+                pilih sesuai kebutuhan Anda, dan lakukan transaksi dengan cepat tanpa ribet.
+                Hanya dalam beberapa klik, kebutuhan Anda terpenuhi dengan mudah,
+                langsung di depan mata.
+            </p>
+            <div class="buttons">
+                <a href="login.html" class="button primary">Login</a>
+                <a href="daftar.html" class="button secondary">Register</a>
+            </div>
+        </div>
+        <div class="illustration">
+            <img src= {% static "./asets/illustration.png"%} alt="FarmHub Illustration">
+        </div>
+    </div>
+</body>
+</html>
