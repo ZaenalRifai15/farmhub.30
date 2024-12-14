@@ -32,8 +32,10 @@
         <div class="card-container">
             {% for product in products %}
                 <div  class="card">
-                    <img src="{{ product.image.url }}" class="card-img-top">
-                    
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" class="card-img-top">
+                    </a>
+
                     <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
                     </div>
@@ -55,5 +57,5 @@
     </main>
 </body>
 
-<script src="{% static 'js/script-beranda.js' %}"></script>
+<script src="{% static 'product/js/script-beranda.js' %}"></script>
 </html>
