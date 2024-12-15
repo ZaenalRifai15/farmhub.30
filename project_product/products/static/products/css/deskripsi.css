@@ -25,6 +25,11 @@ header .back-button {
   font-size: 16px;
 }
 
+.back-button a{
+  text-decoration: none;
+  color: wheat;
+}
+
 main {
   padding: 20px;
 }
@@ -81,4 +86,87 @@ main {
 
 #buy-button:hover {
   background-color: #a41d1d;
+}
+
+body{
+  padding: 5%
+}
+
+h2{
+  font-size: 50px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom dengan lebar sama */
+  gap: 1px; /* Jarak antar elemen */
+}
+
+.img{
+  margin-top: 15%;
+  background-image: url('b0686e954482395d6ffb75fc2f6c94de.jpg') ;
+  width: 413px;
+  height: 319px;
+  background-size: cover;
+  background-position: center;
+  margin-left: 10%;
+}
+
+.detail{
+  background-color: wheat;
+  box-shadow: inset;
+  padding-left: 10%;
+  width: 568px;
+  height: 467px;
+  padding-top: 5%;
+  border-radius: 5%;
+}
+.detail p{
+  width: 90%;
+}
+
+.harga{
+  width: 505px;
+  height: 38px;
+  font-size: 30px;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding-left: 3% ;
+}
+
+.user{
+  display: flex;
+  grid-template-columns: repeat(3, 1fr, 2fr);
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+
+.ppp{
+  width: 10%;
+}
+.ket{
+  font-size: large;
+}
+
+.pp{
+  height: 50px;
+  background-image: url(' {{product.image.url}} ');
+  width: 50px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+h3{
+  margin-bottom: -1px;
+}
+
+button{
+  height: 7%;
+  width: 90%;
+  border: none;
+  border-radius: 10px;
+  font-size: larger;
+  font-weight: bold;
+  background-color: #FFCA03;
 }

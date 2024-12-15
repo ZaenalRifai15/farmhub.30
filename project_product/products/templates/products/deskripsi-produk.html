@@ -10,25 +10,45 @@
 <body>
     <header>
         <div class="back-button" onclick="goBack()">
-            &#8592; Kembali
+            <a href="{% url 'product_list' %}">Kembali</a>
         </div>
-        <h1>Detail Produk</h1>
     </header>
     <main>
-        <section class="product-detail">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            <h2 id="product-name">{{ product.name }}</h2>
-            <p id="product-weight">Berat Produk</p>
-            <p id="product-price">Harga: Rp{{ product.price }}</p>
-            <p id="product-description">Deskripsi lengkap produk akan ditampilkan di sini.</p>
-        </section>
-        <section class="seller-info">
-            <h3>Informasi Penjual</h3>
-            <p><strong id="seller-name">Nama Penjual</strong></p>
-            <p id="seller-location">Lokasi Penjual</p>
-        </section>
-        <button id="buy-button">Beli Sekarang</button>
-        <a href="{% url 'product_list' %}">Kembali ke daftar produk</a>
+
+        <div class="container">
+            <div class="img">
+            </div>
+             <div class="detail">
+                 <h2> {{product.name}} </h2>
+                 <div class="harga">{{product.price}} </div>
+                 <h3>Deskripsi Produk</h3>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sit, perferendis ipsa maiores eligendi, nulla nemo veritatis aliquam placeat quod neque doloremque excepturi asperiores. Fugit dolor molestias ducimus numquam excepturi!</p>
+                 <h3>Detail Produk</h3>
+                 <table>
+                     <tr>
+                         <td>berat</td>
+                         <td></td>
+                         <td>1kg</td>
+                     </tr>
+                     <tr>
+                         <td>kondisi</td>
+                         <td></td>
+                         <td>Baru panen</td>
+                     </tr>
+                 </table>
+                 <div class="user">
+                     <div class="ppp">
+                         <div class="pp"></div>
+                     </div>
+                     <div>
+                         <div class="ket">nama user</div>
+                         <div class="ket">Lokasi</div>
+                     </div>
+                 </div>
+                 <button>beli</button>
+             </div>
+         </div>
+       
 
     </main>
     
