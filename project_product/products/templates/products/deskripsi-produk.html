@@ -17,6 +17,7 @@
 
         <div class="container">
             <div class="img">
+                <img src="{{ product.image.url }}" class="img">
             </div>
              <div class="detail">
                  <h2> {{product.name}} </h2>
@@ -28,17 +29,19 @@
                      <tr>
                          <td>berat</td>
                          <td></td>
-                         <td>1kg</td>
+                         <td> {{product.berat}} kg</td>
                      </tr>
                      <tr>
                          <td>kondisi</td>
                          <td></td>
-                         <td>Baru panen</td>
+                         <td> {{product.kondisi}} </td>
                      </tr>
                  </table>
                  <div class="user">
                      <div class="ppp">
-                         <div class="pp"></div>
+                         <div class="pp" >
+                            <img src="{{ product.image.url }}" class="pp">
+                         </div>
                      </div>
                      <div>
                          <div class="ket">nama user</div>

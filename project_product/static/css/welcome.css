@@ -1,83 +1,130 @@
-body {
+/* Global Styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #ffffff, #ffcccc);
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
 }
 
-.welcome {
+/* Header */
+header {
     display: flex;
-    max-width: 1200px;
-    margin: auto;
-    align-items: center;
     justify-content: space-between;
-    padding: 2px;
-}
-
-.content {
-    max-width: 700px;
+    align-items: center;
+    padding: 30px 50px;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 .logo {
-
-    width: 15%;
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-h1 .highlight {
-    color: #ff9900;
-}
-
-p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.buttons {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 7px; /* Jarak antara logo dan teks */
 }
 
-.button {
-    padding: 10px 20px;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.button.primary {
-    background-color: #ff9900;
-    color: white;
-}
-
-.button.primary:hover {
-    background-color: #e68a00;
-}
-
-.button.secondary {
-    background-color: #ffffff;
-    color: #ff9900;
-    border: 2px solid #ff9900;
-}
-
-.button.secondary:hover {
-    background-color: #ffe6cc;
-}
-
-.illustration img {
-    max-width: 300px;
+.logo-img {
+    width: 40px;
     height: auto;
+}
+
+header .login {
+    color: #000;
+    text-decoration: none;
+}
+
+header .login:hover {
+    text-decoration: underline;
+}
+
+.logo-text {
+    font-weight: lighter;
+    font-size: 1.2em;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 50px 30px; */
+    margin-left: 30px;
+    margin-right: 30px;
+    /* padding-bottom: 200px; */
+}
+
+.content {
+    max-width: 50%;
+    margin-left: 40px;
+}
+
+.content h1 {
+    font-size: 2.5em;
+    margin: 0 0 20px;
+}
+
+.highlight {
+    color: #FBC02D;
+}
+
+.content p {
+    font-size: 1em;
+    color: #555555;
+}
+
+/* Image Section */
+.image-container {
+    max-width: 50%;
+    margin-right: 60px;
+}
+
+.shopping-image {
+    width: 100%;
+    height: auto;
+}
+
+.image-vector {
+    position: absolute; /* Membuat elemen bebas diatur posisi */
+    bottom: 0; /* Menempel ke bagian bawah */
+    left: 0; /* Dimulai dari sisi kiri */
+    width: 100%; /* Lebar penuh */
+    z-index: -1; /* Menempatkan di belakang konten */
+    margin-bottom: -35px;
+}
+
+.image-vector img {
+    width: 100%; /* Gambar vektor melengkung memenuhi layar */
+    height: auto;
+    display: block; /* Menghilangkan ruang tambahan bawah gambar */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content, .image-container, .image-vector {
+        max-width: 100%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-vector {
+        margin-bottom: -250px;
+    }
 }

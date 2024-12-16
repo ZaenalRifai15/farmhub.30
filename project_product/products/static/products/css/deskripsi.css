@@ -1,12 +1,83 @@
-header{
-  height: 20%;
-  margin-top: 0;
-  background-color: red;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #ffffff, #ffcccc);
+  color: #333;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #7c0a02;
+  color: #fff;
+  padding-bottom: 18px;
+  height: 5%;
+  padding-left: 5%;
+  margin-bottom: 5%;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+header .back-button {
+  cursor: pointer;
+  font-size: 20px;
+  height: 5%;
+}
+
+.back-button a{
+  text-decoration: none;
+  color: wheat;
+}
+
+
+.product-detail {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-right: 20%;
+}
+
+.product-detail img {
+  width: 50%;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.product-detail h2 {
+  margin: 20px 0 10px;
+  font-size: 22px;
+}
+
+.product-detail p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.seller-info {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.seller-info h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.seller-info p {
+  margin: 5px 0;
 }
 
 h2{
   font-size: 50px;
-  margin-top: 0px;
+  margin-top: -20px;
   margin-bottom: 20px;
 }
 .container {
@@ -16,23 +87,24 @@ h2{
 }
 
 .img{
-  margin-top: 15%;
-  background-image: url('b0686e954482395d6ffb75fc2f6c94de.jpg') ;
+  margin-top: 0%;
   width: 413px;
   height: 319px;
   background-size: cover;
   background-position: center;
-  margin-left: 10%;
+  margin-left: 15%;
+  border-radius: 5%;
 }
 
 .detail{
-  background-color: wheat;
+  background: linear-gradient(to bottom, #ffffff, #ffcccc);
   box-shadow: inset;
   padding-left: 10%;
   width: 568px;
   height: 467px;
   padding-top: 5%;
   border-radius: 5%;
+  border: 2px solid black;
 }
 .detail p{
   width: 90%;
@@ -63,7 +135,6 @@ h2{
 
 .pp{
   height: 50px;
-  background-image: url(Snapinsta.app_434171305_1493764077841059_1282776696124529565_n_1080.jpg);
   width: 50px;
   background-size: cover;
   border-radius: 50%;

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'products/css/login.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <div class="logo">
+                <img src="{% static 'asets/logo.png' %}" alt="Logo">
+            </div>
+            <h2>Selamat Datang</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="id_username"></label>
+                    <input type="text" placeholder="Nama atau Username" class="input-field" id="id_username" name="username">
+                </div>
+                <div>
+                    <label for="id_password"></label>
+                    <input type="password" placeholder="Password" class="input-field"
+                    id="id_password" name="password">
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <div class="separator">
+                <span>Atau</span>
+            </div>
+            <div class="social-login">
+                <button class="google-btn">Masuk Dengan Google</button>
+                <button class="facebook-btn">Masuk Dengan Facebook</button>
+            </div>
+            <div class="register-link">
+                <p>Belum Punya Akun? <a href="{% url 'products:register' %}">Daftar</a></p>
+            </div>
+        </div>
+        <div class="side-image">
+            <img src="{% static 'asets/Group 1668.png' %}" alt="Tampilan Produk">
+        </div>
+        <div class="image-vector">
+            <img src="{% static 'asets/Vector 1.png' %}" alt="vector">
+        </div>
+    </div>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
