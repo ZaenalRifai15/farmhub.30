@@ -10,8 +10,9 @@
 <body>
     <header>
         <div class="back-button" onclick="goBack()">
-            <a href="{% url 'product_list' %}">Kembali</a>
+            <a href="{% url 'products:product_list' %}">Kembali</a>
         </div>
+        
     </header>
     <main>
 
@@ -23,7 +24,7 @@
                  <h2> {{product.name}} </h2>
                  <div class="harga">{{product.price}} </div>
                  <h3>Deskripsi Produk</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sit, perferendis ipsa maiores eligendi, nulla nemo veritatis aliquam placeat quod neque doloremque excepturi asperiores. Fugit dolor molestias ducimus numquam excepturi!</p>
+                 <p> {{product.deskripsi}} </p>
                  <h3>Detail Produk</h3>
                  <table>
                      <tr>
@@ -44,11 +45,14 @@
                          </div>
                      </div>
                      <div>
-                         <div class="ket">nama user</div>
-                         <div class="ket">Lokasi</div>
+                         <div class="ket">{{ product.user.username }}</div>
+                         <div class="ket">{{ product.user.alamat }} </div>
                      </div>
                  </div>
-                 <button>beli</button>
+                 <form action="{% url 'products:checkout' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="buy-btn">Beli</button>
+                </form>
              </div>
          </div>
        

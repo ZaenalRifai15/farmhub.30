@@ -94,7 +94,9 @@ h2{
   background-position: center;
   margin-left: 15%;
   border-radius: 5%;
+  object-fit: cover;
 }
+
 
 .detail{
   background: linear-gradient(to bottom, #ffffff, #ffcccc);
@@ -116,7 +118,7 @@ h2{
   font-size: 30px;
   border-radius: 50px;
   border: 2px solid black;
-  padding-left: 3% ;
+  padding-left: 7% ;
 }
 
 .user{

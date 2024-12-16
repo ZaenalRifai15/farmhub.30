@@ -92,7 +92,7 @@ main {
 .product-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .product-item h4 {

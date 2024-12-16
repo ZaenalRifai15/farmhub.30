@@ -10,7 +10,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'alamat', 'password1', 'password2']
     pass
 
 class LoginForm(forms.Form):
@@ -33,4 +33,10 @@ class LoginForm(forms.Form):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'price', 'image', 'berat', 'kondisi', 'deskripsi']
+        fields = ['name','kategori', 'price', 'image', 'berat', 'kondisi', 'deskripsi']
+
+
+class CheckoutForm(forms.ModelForm):
+    class Meta:
+        model = Transaction
+        fields = ['quantity']

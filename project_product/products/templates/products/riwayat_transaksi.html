@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+</head>
+<body>
+    <h1>Your Transaction History</h1>
+    <ul>
+        {% for history in histories %}
+            <li>
+                <strong>Transaction ID:</strong> {{ history.transaction.id }} <br>
+                <strong>Product:</strong> {{ history.transaction.product.name }} <br>
+                <strong>Quantity:</strong> {{ history.transaction.quantity }} <br>
+                <strong>Total Price:</strong> Rp{{ history.transaction.total_price }} <br>
+                <strong>Status:</strong> {{ history.status }} <br>
+                <strong>Timestamp:</strong> {{ history.timestamp }} <br>
+                <a href="{% url 'products:transaction_detail' history.transaction.id %}">View Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

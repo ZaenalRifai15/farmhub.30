@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,5 +12,44 @@
         {{ form.as_p }}
         <button type="submit">Register</button>
     </form>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pendaftaran</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'products/css/register.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="register-form">
+            <div class="logo">
+                <img src="{% static './asets/logo.png' %}" alt="Logo">
+            </div>
+            <h2>Daftar</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" class="input-field" required>
+                <input type="email" name="email" placeholder="Masukkan Email" class="input-field" required>
+                <textarea id="address" name="address" placeholder="Masukkan Alamat" class="input-field" required></textarea>
+                <input type="password" name="password1" placeholder="Masukkan Password" class="input-field" required>
+                <input type="password" name="password2" placeholder="Konfirmasi Password" class="input-field" required>
+                <button type="submit" class="login-btn">Daftar</button>
+            </form>
+            <div class="login-link">
+                <p>Sudah Punya Akun? <a href="{% url 'products:login' %}">Masuk</a></p>
+            </div>
+        </div>
+        <div class="side-image">
+            <img src="{% static 'asets/Group 1668.png' %}" alt="Tampilan Produk">
+        </div>
+        <div class="image-vector">
+            <img src="{% static 'asets/Vector 1.png' %}" alt="vector">
+        </div>
+    </div>
 </body>
 </html>

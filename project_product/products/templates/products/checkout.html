@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{% static 'products/css/checkout.css' %}">
+</head>
+<body>
+    <div class="checkout-container">
+        <h2>Transaksi</h2>
+
+        <!-- User Info -->
+        <div class="user-info">
+            <img src="{% static 'products/images/profile.png' %}" alt="Profil Pengguna" class="profile-image">
+            <div>
+                <p class="user-name">{{ user.username }}</p>
+                <p class="user-location">{{ user.alamat }}</p>
+            </div>
+            <button class="chat-btn">
+                <span>💬 Chat</span>
+            </button>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+            <div class="product-details">
+                <p class="product-name">{{ product.name }}</p>
+                <p class="product-price">Rp{{ product.price }}</p>
+            </div>
+            <div class="quantity">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="buy-btn">Beli</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="payment-method">
+            <label for="payment">Metode Pembayaran</label>
+            <input type="text" id="payment" value="COD (Bayar ditempat)" readonly>
+        </div>
+
+        <!-- Price Summary -->
+        <div class="price-summary">
+            <div class="row">
+                <span>Harga satuan</span>
+                <span>Rp{{ product.price }}</span>
+            </div>
+            <div class="row">
+                <span>Subtotal produk</span>
+                <span>Rp{{ product.price }}</span>
+            </div>
+            <div class="row">
+                <span>Biaya penanganan</span>
+                <span>Rp5.000</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Total Payment -->
+        <div class="total-payment">
+            <span>Total Bayar</span>
+            <span class="total-price">Rp{{ product.price }}</span>
+        </div>
+    </div>
+</body>
+<script src="{% static 'products/js/checkout.js' %}"></script>
+</html>
