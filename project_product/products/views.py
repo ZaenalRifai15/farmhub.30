@@ -29,13 +29,12 @@ def user_login(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             
-            # Menghapus sesi pengguna sebelumnya (opsional)
             logout(request)
 
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('products:product_list')  # Gunakan nama URL dengan prefiks aplikasi 'products'
+                return redirect('products:product_list')
             else:
                 messages.error(request, "Username atau password salah.")
         else:
@@ -81,7 +80,6 @@ def checkout(request, product_id):
             quantity = form.cleaned_data['quantity']
             total_price = product.price * quantity
 
-            # Buat transaksi baru
             transaction = Transaction.objects.create(
                 user=request.user,
                 product=product,
@@ -93,14 +91,13 @@ def checkout(request, product_id):
     else:
         form = CheckoutForm()
 
-    # Kirim data produk dan pengguna ke template
     return render(request, 'products/checkout.html', {
         'product': product,
         'user': request.user,
         'form': form,
     })
 
-@login_required
+
 
 
 @login_required
@@ -121,6 +118,7 @@ def add_review(request, transaction_id):
     return render(request, 'products/add_review.html', {'transaction': transaction})
 
 
+@login_required
 def transaction_detail(request, transaction_id):
     transaction = get_object_or_404(Transaction, id=transaction_id, user=request.user)
 

@@ -20,14 +20,9 @@
             <div>Total Harga<br><span class="status-text">Rp.{{ transaction.total_price }}</span></div>
             <div>Status:<br><span class="status-text">Sukses</span></div>
         </div>
-        <div class="review_name">Review</div>
-        <div class="review">
-            <label for="rating">Rating 1/5</label>
-            <input type="text" id="rating" placeholder="Beri rating 1/5">
-        </div>
+        <div class="review_name">Review Anda</div>
         
             {% if review %}
-            <h3>Review Anda</h3>
             <p>Rating: {{ review.rating }}/5</p>
             <p>Komentar: {{ review.komentar }}</p>
         {% else %}

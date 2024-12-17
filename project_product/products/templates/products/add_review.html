@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -17,5 +17,55 @@
 
         <button type="submit">Kirim Review</button>
     </form>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Review</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'products/css/add_review.css' %}">
+</head>
+<body>
+    <h2 class="Review">Tambah Review untuk Transaksi</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="rating">Rating:</label>
+        <div class="rating">
+            <button type="button" id="decrease" class="rating-btn">-</button>
+            <input type="number" id="rating-value" name="rating" value="1" min="1" max="5" readonly>
+            <button type="button" id="increase" class="rating-btn">+</button>
+        </div>
+        
+        <label for="komentar">Komentar:</label><br>
+        <textarea name="komentar" id="komentar" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Kirim Review</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ratingValue = document.getElementById("rating-value");
+            const increaseButton = document.getElementById("increase");
+            const decreaseButton = document.getElementById("decrease");
+        
+            increaseButton.addEventListener("click", function() {
+                let currentValue = parseInt(ratingValue.value);
+                if (currentValue < 5) {
+                    ratingValue.value = currentValue + 1;
+                }
+            });
+        
+            decreaseButton.addEventListener("click", function() {
+                let currentValue = parseInt(ratingValue.value);
+                if (currentValue > 1) {
+                    ratingValue.value = currentValue - 1;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
