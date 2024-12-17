@@ -1,24 +1,46 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'products/css/riwayat.css' %}">
     <title>Transaction History</title>
 </head>
 <body>
-    <h1>Your Transaction History</h1>
-    <ul>
+    <h1>Riwayat Transaksi</h1>
+    <div class="conten">
         {% for history in histories %}
-            <li>
-                <strong>Transaction ID:</strong> {{ history.transaction.id }} <br>
-                <strong>Product:</strong> {{ history.transaction.product.name }} <br>
-                <strong>Quantity:</strong> {{ history.transaction.quantity }} <br>
-                <strong>Total Price:</strong> Rp{{ history.transaction.total_price }} <br>
-                <strong>Status:</strong> {{ history.status }} <br>
-                <strong>Timestamp:</strong> {{ history.timestamp }} <br>
-                <a href="{% url 'products:transaction_detail' history.transaction.id %}">View Details</a>
-            </li>
-        {% endfor %}
-    </ul>
+        <div class="card">
+            <div class="img-con">
+                <img src="{{ history.transaction.product.image.url }}" alt="Product Image">
+            </div>
+            <div class="detail">
+                <div>
+                    <div class="product-name">{{ history.transaction.product.name }}</div>
+                    <div class="quantity">{{ history.transaction.quantity }} Kilogram</div>
+                    <div class="rating">
+                        <div class="rating">
+                            {% for star in "12345"|make_list %}
+                                {% if forloop.counter <= history.transaction.review.rating %}
+                                    <span style="color: #ffc107;">&#9733;</span> 
+                                {% else %}
+                                    <span style="color: #ddd;">&#9733;</span> 
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        
+                    </div>
+                </div>
+                <div>
+                    <div class="time">{{ history.timestamp}}</div>
+                    <div class="harga">Rp{{ history.transaction.total_price }}</div>
+                    <a href="{% url 'products:transaction_detail' history.transaction.id %}" class="view">View Details</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
 </body>
 </html>

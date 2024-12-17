@@ -1,0 +1,110 @@
+/* Reset dan Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Container */
+.conten {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card */
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Image */
+.img-con img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+/* Detail Container */
+.detail {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabel-detail {
+    line-height: 1.8;
+}
+
+.harga {
+    color: #e53935;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.status {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.time {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-bottom: 3%;
+}
+
+
+.rating {
+    color: #ffc107;
+    font-size: 1.2em;
+}
+
+/* View Details Link */
+a {
+    text-decoration: none;
+    color: #380e0d;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.product-name{
+    font-size: larger;
+    margin-top: -5px;
+    margin-bottom: 5px;
+
+}
+
+.view{
+    margin-top: 5px;
+    font-size: small;
+}

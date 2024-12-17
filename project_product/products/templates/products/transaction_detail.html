@@ -1,27 +1,47 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaction Detail</title>
+    <title>Detail Transaksi</title>
+    <link rel="stylesheet" href="{% static 'products/css/detail_transaksi.css' %} ">
 </head>
 <body>
-    <h1>Transaction Detail</h1>
-    <h2>{{ transaction.product.name }}</h2>
-    <img src="{{ transaction.product.image.url }}" alt="{{ transaction.product.name }}" style="width: 300px;">
-    <p>Price per item: Rp{{ transaction.product.price }}</p>
-    <p>Quantity: {{ transaction.quantity }}</p>
-    <p>Total Price: Rp{{ transaction.total_price }}</p>
-    <p>Status: {{ transaction.get_status_display }}</p>
+    <div class="card">
+        <div class="transaksi">Detail Transaksi</div>
+        <div class="nama_produk"> {{ transaction.product.name }} </div>
+        <div class="img">
+            <img src="{{ transaction.product.image.url }}" alt="Wortel Panjang" />
+        </div>
+        <div class="detail_transaksi">
+            <div>Harga Satuan<br><span class="status-text">Rp.{{ transaction.product.price }}</span></div>
+            <div>Jumlah<br><span class="status-text">{{ transaction.quantity }}</span></div>
+            <div>Total Harga<br><span class="status-text">Rp.{{ transaction.total_price }}</span></div>
+            <div>Status:<br><span class="status-text">Sukses</span></div>
+        </div>
+        <div class="review_name">Review</div>
+        <div class="review">
+            <label for="rating">Rating 1/5</label>
+            <input type="text" id="rating" placeholder="Beri rating 1/5">
+        </div>
+        
+            {% if review %}
+            <h3>Review Anda</h3>
+            <p>Rating: {{ review.rating }}/5</p>
+            <p>Komentar: {{ review.komentar }}</p>
+        {% else %}
+            <p>Belum ada review. <a href="{% url 'products:add_review' transaction.id %}">Tambah Review</a></p>
+        {% endif %}
+        <div class="button-container">
+            <button onclick="back_button()" class="back-button">Kembali ke Beranda</button>
+        </div>
+    </div>
 
-    {% if review %}
-        <h3>Review Anda</h3>
-        <p>Rating: {{ review.rating }}/5</p>
-        <p>Komentar: {{ review.komentar }}</p>
-    {% else %}
-        <p>Belum ada review. <a href="{% url 'products:add_review' transaction.id %}">Tambah Review</a></p>
-    {% endif %}
-
-    <a href="{% url 'products:product_list' %}"> Kembali </a>
+    <script>
+        function back_button() {
+            window.location.href = "{% url 'products:product_list' %}";
+        }
+    </script>
 </body>
 </html>
